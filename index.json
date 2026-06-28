@@ -6,7 +6,7 @@
       "schema_version": "1.0.0",
       "id": "bl_ext_test",
       "name": "Blender Extension Test",
-      "version": "2026.6.29",
+      "version": "2026.6.30",
       "tagline": "description test",
       "maintainer": "mmt3d",
       "type": "add-on",
