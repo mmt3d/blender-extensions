@@ -1,0 +1,39 @@
+name: Rebuild Distribution Index and HTML
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'zips/**.zip'
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Distribution Repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Rebuild index.json and index.html
+        run: |
+          python src/.github/scripts/generate_index.py
+
+      - name: Commit and Push Distribution Artifacts
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add index.json index.html
+          if ! git diff --cached --exit-code; then
+            git commit -m "chore: Auto-rebuild distribution metadata and archive site"
+            git push origin main
+          else
+            echo "配信メタデータに変更はありませんでした。"
+          fi
