@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Rebuild index.json and index.html
+      - name: Rebuild index.json
         run: |
           python .github/scripts/generate_index.py
 
@@ -31,7 +31,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add index.json index.html
+          git add index.json
           if ! git diff --cached --exit-code; then
             git commit -m "chore: Auto-rebuild distribution metadata and archive site"
             git push origin main

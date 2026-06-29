@@ -36,20 +36,3 @@ for zip_file in zip_files:
 with open('index.json', 'w', encoding='utf-8') as f:
     json.dump(index_data, f, indent=2, ensure_ascii=False)
 print('index.json を再構築しました。')
-
-# for archive
-html_lines = [
-  '<!DOCTYPE html>', '<html>', '<head>', '<meta charset=\"utf-8\">',
-  '<title>Blender Extensions Archive</title>',
-  '<style>body { font-family: sans-serif; padding: 20px; line-height: 1.6; } a { color: #0066cc; text-decoration: none; } a:hover { text-decoration: underline; }</style>',
-  '</head>', '<body>', '<h1>Blender アドオン過去バージョンアーカイブ</h1>',
-  '<p>最新版で不具合が発生した場合は、対象の過去バージョン（ZIP）を直接ダウンロードし、Blenderの「ファイルからインストール」で上書きしてください。</p>',
-  '<ul>'
-]
-for zip_file in sorted(zip_files, reverse=True):
-  html_lines.append(f'    <li><a href=\"./zips/{zip_file}\">{zip_file}</a></li>')
-html_lines.extend(['</ul>', '</body>', '</html>'])
-
-with open('index.html', 'w', encoding='utf-8') as f:
-  f.write('\n'.join(html_lines) + '\n')
-print('index.html を再構築しました。')
