@@ -24,7 +24,7 @@ jobs:
 
       - name: Rebuild index.json and index.html
         run: |
-          python src/.github/scripts/generate_index.py
+          python .github/scripts/generate_index.py
 
       - name: Commit and Push Distribution Artifacts
         run: |
