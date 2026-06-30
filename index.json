@@ -25,9 +25,9 @@
       "permissions": {
         "files": "Imports images, nodes, and translations from the bundled files"
       },
-      "archive_url": "https://mmt3d.github.io/blender-extensions/zips/bl_ext_test-2026.7.1.zip",
+      "archive_url": "https://github.com/mmt3d/bl-ext-test/releases/download/v2026.7.1/bl_ext_test-2026.7.1.zip",
       "archive_size": 1159,
-      "archive_hash": "sha256:30138814bcc0b77182804c2cb274ebc9e62f83879aa85dd1b2f8c4e4490ad3a1"
+      "archive_hash": "sha256:caa8aaa59904bc7f284c93cb7b487122b50358b25c99806c83be5862cce60788"
     }
   ]
 }
