@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'zips/**.zip'
+      - 'metadata/**.json'
   workflow_dispatch: {}
 
 permissions:
@@ -24,8 +24,7 @@ jobs:
           python-version: '3.13'
 
       - name: Rebuild index.json
-        run: |
-          python .github/scripts/generate_index.py
+        run: python .github/scripts/generate_index.py
 
       - name: Commit and Push Distribution Artifacts
         run: |
@@ -33,8 +32,8 @@ jobs:
           git config --local user.name "GitHub Action"
           git add index.json
           if ! git diff --cached --exit-code; then
-            git commit -m "chore: Auto-rebuild distribution metadata and archive site"
+            git commit -m "chore: Auto-rebuild distribution index.json"
             git push origin main
           else
-            echo "配信メタデータに変更はありませんでした。"
+            echo "変更はありませんでした。"
           fi
