@@ -35,7 +35,7 @@ with open('index.json', 'w', encoding='utf-8') as f:
 print('index.json を再構築しました。')
 
 env = Environment(loader=FileSystemLoader('.'))
-tmple = env.get_template('index.html.j2')
+templ = env.get_template('index.html.j2')
 html = templ.render(addons=addons.values())
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html)
