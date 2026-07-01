@@ -1,11 +1,13 @@
 name: Rebuild Distribution Index and HTML
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'metadata/**.json'
+  repository_dispatch:
+    types: [addon_published]
+  #push:
+  #  branches:
+  #    - main
+  #  paths:
+  #    - 'metadata/**.json'
   workflow_dispatch: {}
 
 permissions:
@@ -27,6 +29,8 @@ jobs:
         run: pip install jinja2
 
       - name: Rebuild index
+        env:
+          ADDON_META_JSON: ${{ github.event.client_payload.addon_meta }}
         run: python .github/scripts/generate_index.py
 
       - name: Commit and Push Distribution Artifacts
@@ -35,7 +39,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add index.json index.html
           if ! git diff --cached --exit-code; then
-            git commit -m "chore: Auto-rebuild distribution index.json"
+            git commit -m "chore: Auto-rebuild distribution index"
             git push origin main
           else
             echo "変更はありませんでした。"

@@ -3,9 +3,13 @@ import json
 from jinja2 import Environment, FileSystemLoader
 
 
+meta_data = json.loads(os.environ['ADDON_META_JSON'])
 metadata_dir = 'metadata'
-index_data = {'version': 'v1', 'blocklist': [], 'data': []}
-addons = {}
+os.makedirs(metadata_dir, exist_ok=True)
+target_filename = f"{meta_data['id']}-{meta_data['version']}.json"
+with open(os.path.join(metadata_dir, target_filename), 'w', encoding='utf-8') as f:
+    json.dump(meta_data, f, indent=2, ensure_ascii=False)
+print(f'ペイロードからのメタデータ保存に成功しました: {target_filename}')
 
 def parse_version(version: str):
     try:
@@ -13,6 +17,8 @@ def parse_version(version: str):
     except ValueError:
         return 0, 0, 0
 
+index_data = {'version': 'v1', 'blocklist': [], 'data': []}
+addons = {}
 if os.path.exists(metadata_dir):
     json_files = sorted([f for f in os.listdir(metadata_dir) if f.endswith('.json')])
     for json_file in json_files:
