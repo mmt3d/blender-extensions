@@ -23,7 +23,7 @@ if os.path.exists(metadata_dir):
             addons[addon_id] = manifest
         else:
             latest_version = addons[addon_id]['version']
-            if parse_version(manifest['version']) > parse_version(latest_version['version']):
+            if parse_version(manifest['version']) > parse_version(latest_version):
                 addons[addon_id] = manifest
     index_data['data'] = [
         {k: v for k, v in addon.items() if k != 'extra'}
