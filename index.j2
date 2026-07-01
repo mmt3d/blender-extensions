@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>mmt3d Blender Extensions Store</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 40px; line-height: 1.6; background: #fafafa; color: #333; }
+        .addon-card { background: white; border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin-top: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .btn { display: inline-block; background: #238636; color: white; padding: 8px 16px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-right: 10px; }
+        .code-panel { position: relative; background: #0d1117; color: #e6edf3; border-radius: 8px; padding: 16px; margin: 12px 0 24px; overflow-x: auto; }
+        .code-panel code { font-family: Consolas, Monaco, 'Courier New', monospace; white-space: nowrap; }
+        .copy-btn { position: absolute; top: 10px; right: 10px; background: #30363d; color: #e6edf3; border: 1px solid #444c56; border-radius: 6px; padding: 6px 10px; font-size: 12px; cursor: pointer; }
+        .copy-btn:hover { background: #3b434b; }
+    </style>
+</head>
+<body>
+    <h1>mmt3d Blender Extensions</h1>
+    <p>これは Blender Extension (4.2以降)に対応した個人配信リモートリポジトリです。</p>
+    <p>Blender Extension リモートリポジトリの追加にて、下記URLをご指定ください。</p>
+    <div class="code-panel">
+        <button class="copy-btn" type="button" data-copy-target="repo-url">Copy</button>
+        <code id="repo-url">https://mmt3d.github.io/blender-extensions/index.json</code>
+    </div>
+
+    {% for addon in addons %}
+    <div class="addon-card">
+        <div class="addon-header">
+            <h2>{{ addon.name }}</h2>
+            <span class="addon-version">v{{ addon.version }}</span>
+        </div>
+        <p>{{ addon.tagline }}</p>
+
+        <a class="btn" href="{{ addon.extra.archive_releases }}" target="_blank">📄 リリースノートと過去バージョン</a>
+    </div>
+    {% endfor %}
+
+    <script>
+        (function () {
+            var button = document.querySelector('.copy-btn');
+            if (!button) return;
+
+            button.addEventListener('click', function () {
+                var targetId = button.getAttribute('data-copy-target');
+                var code = document.getElementById(targetId);
+                if (!code) return;
+
+                var text = code.textContent || '';
+                navigator.clipboard.writeText(text).then(function () {
+                    button.textContent = 'Copied!';
+                    setTimeout(function () {
+                        button.textContent = 'Copy';
+                    }, 1200);
+                }).catch(function () {
+                    button.textContent = 'Failed';
+                    setTimeout(function () {
+                        button.textContent = 'Copy';
+                    }, 1200);
+                });
+            });
+        })();
+    </script>
+
+    </body>
+</html>
