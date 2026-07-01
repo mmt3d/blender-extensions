@@ -1,6 +1,6 @@
 import os
 import json
-from jinja2 import Template
+from jinja2 import Environment, FileSystemLoader
 
 
 metadata_dir = 'metadata'
@@ -34,10 +34,9 @@ with open('index.json', 'w', encoding='utf-8') as f:
     json.dump(index_data, f, indent=2, ensure_ascii=False)
 print('index.json を再構築しました。')
 
-with open('index.j2'):
-    templ = Template(f.read())
+env = Environment(loader=FileSystemLoader('.'))
+tmple = env.get_template('index.html.j2')
 html = templ.render(addons=addons.values())
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html)
 print('index.html を再構築しました。')
-
