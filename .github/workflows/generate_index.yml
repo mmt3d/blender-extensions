@@ -30,14 +30,14 @@ jobs:
 
       - name: Rebuild index
         env:
-          ADDON_META_JSON: ${{ github.event.client_payload.metadata }}
+          ADDON_META_JSON: ${{ json(github.event.client_payload.metadata) }}
         run: python .github/scripts/generate_index.py
 
       - name: Commit and Push Distribution Artifacts
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add index.json index.html
+          git add index.json index.html metadata/
           if ! git diff --cached --exit-code; then
             git commit -m "chore: Auto-rebuild distribution index"
             git push origin main
