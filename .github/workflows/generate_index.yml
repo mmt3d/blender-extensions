@@ -3,11 +3,6 @@ name: Rebuild Distribution Index and HTML
 on:
   repository_dispatch:
     types: [addon_published]
-  #push:
-  #  branches:
-  #    - main
-  #  paths:
-  #    - 'metadata/**.json'
   workflow_dispatch: {}
 
 permissions:
