@@ -30,7 +30,7 @@ jobs:
 
       - name: Rebuild index
         env:
-          ADDON_META_JSON: ${{ toJSON(github.event.client_payload.metadata) }}
+          ADDON_META_B64: ${{ github.event.client_payload.metadata }}
         run: python .github/scripts/generate_index.py
 
       - name: Commit and Push Distribution Artifacts

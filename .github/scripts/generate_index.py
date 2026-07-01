@@ -1,9 +1,11 @@
 import os
 import json
+import base64
 from jinja2 import Environment, FileSystemLoader
 
 
-meta_data = json.loads(os.environ['ADDON_META_JSON'])
+json_bytes = base64.b64decode(os.environ['ADDON_META_B64'])
+meta_data = json.loads(json_bytes)
 metadata_dir = 'metadata'
 os.makedirs(metadata_dir, exist_ok=True)
 target_filename = f"{meta_data['id']}-{meta_data['version']}.json"
