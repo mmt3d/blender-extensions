@@ -29,9 +29,9 @@
     "network": "Transfer pose transforms between the game and Blender via the Livelink",
     "clipboard": "Copy/Paste bone and material infomation"
   },
-  "archive_url": "https://github.com/mmt3d/cm3d2-converter-work/releases/download//cm3d2_converter-2026.7.2.zip",
+  "archive_url": "https://github.com/mmt3d/cm3d2-converter-work/releases/download/v2026.7.2/cm3d2_converter-2026.7.2.zip",
   "archive_size": 11614579,
-  "archive_hash": "sha256:8dc44f8934adc1bc29163e0ddd56d3898c85cce1f356eadcabc3421269a31a12",
+  "archive_hash": "sha256:1b7d418c487a0d28816aa2c0f7df16061408582f5465e7c3c9e20ed55394e5fc",
   "extra": {
     "archive_releases": "https://github.com/mmt3d/cm3d2-converter-work/releases"
   }
