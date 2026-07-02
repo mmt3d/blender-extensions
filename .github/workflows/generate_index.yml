@@ -3,7 +3,6 @@ name: Rebuild Distribution Index and HTML
 on:
   repository_dispatch:
     types: [addon_published]
-  workflow_dispatch: {}
 
 permissions:
   contents: write
