@@ -6,7 +6,7 @@
       "schema_version": "1.0.0",
       "id": "cm3d2_converter",
       "name": "CM3D2 Converter",
-      "version": "2026.8.19",
+      "version": "2026.8.20",
       "tagline": "カスタムメイド3D2/カスタムオーダーメイド3D2専用ファイルのインポート/エクスポートを行います",
       "maintainer": "mmt3d",
       "type": "add-on",
@@ -28,14 +28,22 @@
         "2023 fadedplumeria",
         "2026 mmt3d"
       ],
+      "wheels": [
+        "./wheels/clr_loader-0.2.10-py3-none-any.whl",
+        "./wheels/cffi-2.0.0-cp313-cp313-win_amd64.whl",
+        "./wheels/cffi-2.0.0-cp311-cp311-win_amd64.whl",
+        "./wheels/cffi-2.0.0-cp310-cp310-win_amd64.whl",
+        "./wheels/pycparser-3.0-py3-none-any.whl",
+        "./wheels/pythonnet-3.0.5-py3-none-any.whl"
+      ],
       "permissions": {
         "files": "Import/Export CM3D2/COM3D2 resourses from/to disk",
         "network": "Transfer pose transforms between the game and Blender via the Livelink",
         "clipboard": "Copy/Paste bone and material infomation"
       },
-      "archive_url": "https://github.com/mmt3d/Blender-CM3D2-Converter/releases/download/v2026.8.19/cm3d2_converter-2026.8.19.zip",
-      "archive_size": 11611822,
-      "archive_hash": "sha256:d7fd6b7be4311bb9142370207c6543d35fa6cc03e29b188d1cbed0a34464e507"
+      "archive_url": "https://github.com/mmt3d/Blender-CM3D2-Converter/releases/download/v2026.8.20/cm3d2_converter-2026.8.20.zip",
+      "archive_size": 11810422,
+      "archive_hash": "sha256:85516781f88c5c7ef8d8e132cc3cd64e0a22eb68390b59a10922ef7f17a15b29"
     }
   ]
 }
