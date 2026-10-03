@@ -6,7 +6,7 @@
       "schema_version": "1.0.0",
       "id": "cm3d2_converter",
       "name": "CM3D2 Converter",
-      "version": "2026.9.27",
+      "version": "2026.10.3",
       "tagline": "カスタムメイド3D2/カスタムオーダーメイド3D2専用ファイルのインポート/エクスポートを行います",
       "maintainer": "mmt3d",
       "type": "add-on",
@@ -41,9 +41,9 @@
         "network": "Transfer pose transforms between the game and Blender via the Livelink",
         "clipboard": "Copy/Paste bone and material infomation"
       },
-      "archive_url": "https://github.com/mmt3d/Blender-CM3D2-Converter/releases/download/v2026.9.27/cm3d2_converter-2026.9.27-extension.zip",
-      "archive_size": 11826414,
-      "archive_hash": "sha256:ead8d53c6e111b2a006bed5e77d44a0a1a608d67e2e32b6ab6245a8e0f3b9c0d"
+      "archive_url": "https://github.com/mmt3d/Blender-CM3D2-Converter/releases/download/v2026.10.3/cm3d2_converter-2026.10.3-extension.zip",
+      "archive_size": 11825751,
+      "archive_hash": "sha256:ee26d520fd74a0edafdd7eed518f0f0ac0b9f44b317840b85d4f16c613bed13b"
     }
   ]
 }
